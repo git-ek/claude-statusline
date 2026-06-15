@@ -56,11 +56,11 @@ def human(n):
     return str(n)
 
 
-def short_model(dn):  # 'Opus 4.8 (1M context)' -> 'o4.8(1M)'
+def short_model(dn):  # 'Opus 4.8 (1M context)' -> 'Opus4.8(1M)'
     m = re.match(r'([A-Za-z]+)\s+([\d.]+)', dn)
     if not m:
         return dn
-    s = m.group(1)[0].lower() + m.group(2)
+    s = m.group(1) + m.group(2)
     if '1M' in dn or '1m' in dn:
         s += '(1M)'
     return s
